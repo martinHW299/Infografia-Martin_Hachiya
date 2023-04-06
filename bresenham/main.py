@@ -16,11 +16,15 @@ class BresenhamWindow(arcade.Window):
 
     def on_draw(self):
         arcade.start_render()
-
+        
         points = get_line(30, 15, 5, 20)
         self.draw_grid()
         self.draw_line_points(points, arcade.color.AZURE_MIST)
         self.draw_scaled_line(30, 15, 5, 20)
+        '''
+        points = [(10, 10), (50, 100), (90, 10)]
+        self.draw_polygon(points, arcade.color.RED)
+        '''
 
     def draw_grid(self):
         # lineas verticales
@@ -56,18 +60,20 @@ class BresenhamWindow(arcade.Window):
             5
         )
 
-    
-    def draw_polygon(vertices, color):
-    # generar una lista de puntos que forman el polígono
-        points = []
-        for i in range(len(vertices)):
-            x0, y0 = vertices[i]
-            x1, y1 = vertices[(i+1) % len(vertices)]
-            points.extend(get_line(x0, y0, x1, y1))
+    '''
+    def draw_polygon(self, points, color):
+        for i in range(len(points)-1):
+            point1 = points[i]
+            point2 = points[i+1]
+            line_points = get_line(point1[0], point1[1], point2[0], point2[1])
+            self.draw_line_points(line_points, color)
 
-        # dibujar el polígono
-        arcade.draw_polygon_filled(points, color)
-
+        # conectar el ultimo punto con el primer punto
+        first_point = points[0]
+        last_point = points[-1]
+        line_points = get_line(last_point[0], last_point[1], first_point[0], first_point[1])
+        self.draw_line_points(line_points, color)
+    '''
 
 if __name__ == "__main__":
     app = BresenhamWindow()
