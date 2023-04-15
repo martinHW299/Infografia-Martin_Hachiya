@@ -12,3 +12,6 @@ Tal vez en la primera ejecución no funcione el juego. Simplemente cierre el jue
 
 ## Keys
 Solo utilizamos las flechas
+
+## Problemas
+Intenté aumnetar la cabeza de la serpiente pero no funcionó (versión 1)

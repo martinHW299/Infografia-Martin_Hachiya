@@ -2,7 +2,8 @@ import arcade
 
 class Snake(arcade.Sprite):
     def __init__(self, game):
-        super().__init__("./images/snakehead.png", center_x=game.width//2, center_y=game.height//2, scale=0.05)
+        #super().__init__("./images/snakehead.png", center_x=game.width//2, center_y=game.height//2, scale=0.05)
+        super().__init__(center_x=game.width//2, center_y=game.height//2, scale=0.05)
         self.width = 20
         self.height = 20
         self.center_x = game.width / 2
@@ -34,7 +35,7 @@ class Snake(arcade.Sprite):
         food.kill()
 
     def draw(self):
-        arcade.draw_circle_filled(self.center_x, self.center_y, self.width/2, self.color)
+        arcade.draw_circle_filled(self.center_x, self.center_y, self.width/2,self.color)
         self.body.reverse()
         for index, part in enumerate(self.body):
             arcade.draw_circle_filled(part.center_x, part.center_y, part.width/2, self.color if index%2!=0 else self.color)
